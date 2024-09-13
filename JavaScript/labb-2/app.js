@@ -1,16 +1,31 @@
 async function fetchMenuData() {
     try {
-        const response = await fetch("./data/menu.json");  // Ensure the path to menu.json is correct
+        const response = await fetch("./data/menu.json");  
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        const data = await response.json();  // Parse the JSON data
+        const data = await response.json();  
         return data;
     } catch (error) {
-        console.error('Error fetching data:', error);  // Handle any errors during fetch
+        console.error('Error fetching data:', error);  
         return null;
     }
 }
+
+async function fetchSpecialsMenuData() {
+    try {
+        const response = await fetch("./data/specials.json");  
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();  
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);  
+        return null;
+    }
+}
+
 
 function generateMenuHTML(categoryName, items) {
     let html = `<h2>${categoryName}</h2><ul>`;
@@ -35,7 +50,7 @@ async function displayCategory(category) {
     }
 
     const container = document.querySelector('.menu__container');
-    container.innerHTML = generateMenuHTML(category, data[category]);  
+    container.innerHTML = generateMenuHTML(category, data[category]);
 }
 
 function setupEventListeners() {
