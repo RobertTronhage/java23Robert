@@ -1,3 +1,5 @@
+let isYesterday = false;
+
 async function fetchMenuData() {
     try {
         const response = await fetch("./data/menu.json");  
@@ -26,7 +28,6 @@ async function fetchSpecialsMenuData() {
         return null;
     }
 }
-
 
 function generateMenuHTML(categoryName, items) {
     let html = `<h2>${categoryName}</h2><ul>`;
@@ -58,11 +59,8 @@ function setupEventListeners() {
     const buttons = document.querySelectorAll('.nav__menu .options');
     buttons.forEach(button => {
         button.addEventListener('click', function() {
-            
             buttons.forEach(btn => btn.classList.remove('options--active'));
-            
             this.classList.add('options--active');
-            
             displayCategory(this.value);
         });
     });
@@ -75,8 +73,7 @@ function setupEventListeners() {
 
 function getCurrentDayAndTime() {
     const date = new Date();
-    
-    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const currentDay = days[date.getDay()]; 
     
     const hours = date.getHours().toString().padStart(2, '0');
@@ -100,18 +97,24 @@ async function displaySpecials() {
 
     const { currentDay, currentTime } = getCurrentDayAndTime(); 
 
-    console.log("Current day is:", currentDay);
-    console.log("Current time is:", currentTime);
+    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    let displayDayIndex = days.indexOf(currentDay);
 
+    if (isYesterday) {
+        displayDayIndex = (displayDayIndex - 1 + 7) % 7;
+    }
+    const displayDay = days[displayDayIndex];
+
+    console.log("Display day is:", displayDay);
+    console.log("Current time is:", currentTime);
    
-    const specialsForDay = specialsData.weeklySpecialsMenu[currentDay];
-    console.log("Specials for", currentDay, ":", specialsForDay);
+    const specialsForDay = specialsData.weeklySpecialsMenu[displayDay];
+    console.log("Specials for", displayDay, ":", specialsForDay);
 
     if (!specialsForDay) {
-        console.log(`No specials available for ${currentDay}`);
+        console.log(`No specials available for ${displayDay}`);
         return;
     }
-
     
     let timeRange;
     const currentHour = parseInt(currentTime.split(':')[0], 10); 
@@ -124,15 +127,12 @@ async function displaySpecials() {
 
     console.log(`Using time range: ${timeRange}`);
 
-    
     const todaysSpecials = specialsForDay.filter(special => special.time === timeRange);
-
     
     if (todaysSpecials.length === 0) {
         console.log(`No specials available at this time (${currentTime})`);
         return;
     }
-
     
     const specialsContainer = document.querySelector('#specials__content');
     if (!specialsContainer) {
@@ -140,7 +140,8 @@ async function displaySpecials() {
         return;
     }
 
-    let specialsHTML = `<h2>Today's Specials (${currentDay})</h2>`;
+    let specialsHTML = `<h2>${isYesterday ? "Yesterday's" : "Today's"} Special (${displayDay})</h2>`;
+    
     todaysSpecials.forEach(special => {
         specialsHTML += `
             <div class="special">
@@ -152,6 +153,12 @@ async function displaySpecials() {
         `;
     });
 
+    specialsHTML += `
+        <div>
+            <button class="button button--specials">${isYesterday ? 'Show Today\'s' : 'Show Yesterday\'s'}</button>
+        </div>
+    `;
+
     const loadingSpinner = document.querySelector('#js-loading');
     if (loadingSpinner) {
         loadingSpinner.classList.add('hidden'); 
@@ -159,6 +166,17 @@ async function displaySpecials() {
 
     specialsContainer.innerHTML = specialsHTML;
     specialsContainer.classList.add('specials__content--loaded');
+
+    
+    const toggleButton = document.querySelector('.button--specials');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            isYesterday = !isYesterday;
+            displaySpecials();
+        });
+    } else {
+        console.error('Toggle button not found!');
+    }
 }
 
 async function toggleMenu() {
@@ -203,6 +221,9 @@ function generateSpecialsHTML(weeklySpecialsMenu) {
     return specialsHTML;
 }
 
-document.addEventListener('DOMContentLoaded', displaySpecials);
+document.addEventListener('DOMContentLoaded', () => {
+    displaySpecials();
+    setupEventListeners();
+});
+
 document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
-document.addEventListener('DOMContentLoaded', setupEventListeners);
