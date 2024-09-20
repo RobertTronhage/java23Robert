@@ -81,7 +81,7 @@ function getCurrentDayAndTime() {
     const currentTime = `${hours}:${minutes}`;
 
     console.log("Current day is:", currentDay);
-    console.log("Current time is:", currentTime); 
+    console.log("Current time is:", currentTime);
 
     return { currentDay, currentTime };
 }
