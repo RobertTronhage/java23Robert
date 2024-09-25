@@ -11,6 +11,8 @@ async function renderWeather(dayIndex) {
   const url = "./weather.json";
   const weatherData = await fetchWeather(url);
 
+  console.log(weatherData)
+
   const todaysDate = new Date();
   const dayName = getDayName(todaysDate.getDay());
   const currentTime = formatTime(todaysDate);
@@ -19,25 +21,25 @@ async function renderWeather(dayIndex) {
 
   const todaysWeather = weatherData['weather_data']
     .filter(elem => {
-      const elemDay = elem.date.split('-')[2];
+      const elemDay = elem.date.split('-')[2]; // 2024-09-[12]
 
       return elemDay === currentDay
     });
 
-  const weatherRange = todaysWeather[0].temperatures.split('-')
+  const weatherRange = todaysWeather[0].temperatures.split('-') // [15c]-22c-13c
 
   const today = document.querySelector('#today');
   const tempratur = document.querySelector('#tempratur');
   
   today.textContent = `${dayName} kl: ${currentTime} (${formattedDate})`;
   
-  const currentHour = currentTime.split(':')[0];
+  const currentHour = currentTime.split(':')[0]; // [11]:12
 
   if (currentHour >= 0 && currentHour <= 10) {
     tempratur.textContent = `Senaste mätning: ${weatherRange[0]}`
   } else if (currentHour >= 10 && currentHour <= 18) {
     tempratur.textContent = `Senaste mätning: ${weatherRange[1]}`
-  } else if (currentHour >= 18) {
+  } else if (currentHour > 18) {
     tempratur.textContent = `Senaste mätning: ${weatherRange[2]}`
   }
 }

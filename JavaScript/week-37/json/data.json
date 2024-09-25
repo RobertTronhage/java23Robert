@@ -1,0 +1,14 @@
+{
+  "Grill": [
+    {
+      "name": "BBQ Revben",
+      "price": "120.0",
+      "description": "Långkokta revben med BBQ-sås"
+    },
+    {
+      "name": "Grillad Kyckling",
+      "price": "150.0",
+      "description": "Marinerad kycklingbröst grillad till perfektion"
+    }
+  ]
+}
