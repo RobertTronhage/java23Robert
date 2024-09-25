@@ -8,9 +8,12 @@
   --orange: #be6321; /* Accent color */
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  box-sizing: border-box;
   font-family: "Playfair Display", serif;
   background-color: var(--cream-white);
 }
@@ -103,6 +106,9 @@ body {
   border: 1px solid var(--warm-yellow);
   color: var(--warm-yellow);
 }
+.button--review {
+  margin-left: auto;
+}
 
 .hero-livingroom {
   min-height: 100vh;
@@ -121,6 +127,34 @@ article {
   padding: 2rem;
 
   color: var(--black);
+}
+
+form > div {
+  display: grid;
+  gap: .5rem;
+}
+#submit__button {
+  margin: .8rem 0;
+  margin-left: auto;
+}
+
+.review {
+  display: grid;
+}
+
+.review__container {
+  width: 100vw;
+}
+
+.review__input {
+  display: grid;
+  gap: 1rem;
+}
+
+#username,
+#feedback {
+  color: inherit;
+  background-color: inherit;
 }
 
 .responsive-img {
@@ -225,6 +259,13 @@ body {
   background-color: var(--black);
   border: 1px solid var(--warm-yellow);
   color: var(--warm-yellow);
+}
+.button--review {
+  padding: .8rem 1.3rem;
+  background-color: lightgreen;
+  border: 1px solid var(--warm-yellow);
+  color: var(--black);
+  box-shadow: 0.2em 0.2em green;
 }
 
 

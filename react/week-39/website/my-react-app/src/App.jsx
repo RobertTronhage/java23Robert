@@ -5,18 +5,23 @@ import './App.css'
 import HeroImg from './components/HeroImg'
 import Service from './components/Service'
 import Invoice from './components/Invoice'
+import Reviews from './components/Reviews'
 
 function App() {
+  const invoiceMessage = "hej från parent"
+
   return (
     <>
-      <Hero />
+      <Hero message={invoiceMessage}/>
       <main>
         <HeroImg />
+        <Reviews />
+        
 
         <Article />
         <Service />
         
-        <Invoice />
+        <Invoice message={invoiceMessage}/>
       </main>
 
       <Footer />
