@@ -1,0 +1,46 @@
+{
+  "_id": "66f3b9c92c493b3e09f2288c",
+  "title": "Pannkakor",
+  "description": "Enkla och goda pannkakor som passar till både frukost och dessert.",
+  "imageUrl": "https://example.com/images/pannkakor.jpg",
+  "timeInMins": 20,
+  "price": 45.5,
+  "categories": [
+      "Frukost",
+      "Dessert",
+      "Svensk mat"
+  ],
+  "instructions": [
+      "Vispa ihop ägg, mjölk och mjöl till en slät smet.",
+      "Hetta upp en stekpanna med smör.",
+      "Häll i smeten och stek pannkakorna gyllenbruna på båda sidor.",
+      "Servera med sylt eller grädde."
+  ],
+  "ingredients": [
+      {
+          "name": "Ägg",
+          "amount": 2,
+          "unit": "st",
+          "_id": "66f3b9c92c493b3e09f2288d"
+      },
+      {
+          "name": "Mjölk",
+          "amount": 3,
+          "unit": "dl",
+          "_id": "66f3b9c92c493b3e09f2288e"
+      },
+      {
+          "name": "Vetemjöl",
+          "amount": 2,
+          "unit": "dl",
+          "_id": "66f3b9c92c493b3e09f2288f"
+      },
+      {
+          "name": "Smör",
+          "amount": 25,
+          "unit": "g",
+          "_id": "66f3b9c92c493b3e09f22890"
+      }
+  ],
+  "avgRating": 4.25
+}

@@ -41,7 +41,6 @@ function Reviews() {
     <article className='review'>
       <h3>Vad andra säger om oss</h3>
       <List reviews={reviews} />
-      <a href="/tyck-till">TEST till lämna omdöme</a>
       <Link className='button button--review' to="tyck-till">Lämna omdöme</Link>
     </article>
   );
