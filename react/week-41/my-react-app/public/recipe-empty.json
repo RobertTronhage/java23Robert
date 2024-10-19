@@ -1,0 +1,29 @@
+{
+  "title": "Student nudlar",
+  "description": "Bra för plånboken",
+  "imageUrl": "public/nudlar.png",
+  "timeInMins": 3,
+  "price": 5,
+  "categories": [
+    "näringsfattigt",
+    "lyx nudlar"
+  ],
+  "instructions": [
+    "sätt på spisen",
+    "koka vatten i kastrullen",
+    "häll i nudlar i kastrullen",
+    "njut"
+  ],
+  "ingredients": [
+    {
+      "name":	"nudlar",
+      "amount":	1,
+      "unit":	"paket"
+    },
+    {
+      "name":	"vatten",
+      "amount":	2.5,
+      "unit":	"deciliter"
+    }
+  ]
+}

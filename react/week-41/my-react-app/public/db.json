@@ -1,0 +1,100 @@
+{
+  "reviews": [
+    {
+      "id": "1e6b",
+      "username": "Kajsa",
+      "feedback": "tack för bra ljus!",
+      "isAnonymous": false
+    },
+    {
+      "id": "b674",
+      "username": "Kalle",
+      "feedback": "Mycket bra tjänst!",
+      "isAnonymous": false
+    },
+    {
+      "id": "0d3a",
+      "username": "johan",
+      "feedback": "Lämnat anonymt bra beröm",
+      "isAnonymous": true
+    },
+    {
+      "id": "31aa",
+      "username": "",
+      "feedback": "Det blev fint men lite dyrt...",
+      "isAnonymous": true
+    },
+    {
+      "id": "d741",
+      "username": "Zara",
+      "feedback": "Det blev fint men dyrt.",
+      "isAnonymous": true
+    },
+    {
+      "id": "5401",
+      "username": "Kajsa",
+      "feedback": "Dåligt jobb.",
+      "isAnonymous": false
+    },
+    {
+      "id": "6057",
+      "username": "sdd",
+      "feedback": "dsds",
+      "isAnonymous": false
+    },
+    {
+      "id": "8bdf",
+      "username": "sddssd",
+      "feedback": "sdds",
+      "isAnonymous": false
+    },
+    {
+      "id": "da22",
+      "username": "Kajsa",
+      "feedback": "hej",
+      "isAnonymous": false
+    },
+    {
+      "id": "bce7",
+      "username": "Kajsa",
+      "feedback": "sddsds",
+      "isAnonymous": false
+    },
+    {
+      "id": "7b21",
+      "username": "Kajsa",
+      "feedback": "sdddds",
+      "isAnonymous": false
+    },
+    {
+      "id": "3115",
+      "username": "Kajsa",
+      "feedback": "dsadss",
+      "isAnonymous": false
+    },
+    {
+      "id": "e84f",
+      "username": "Kajsa",
+      "feedback": "Jag är student, fattar inte att ni ville ta ett så högt pris!",
+      "isAnonymous": false
+    },
+    {
+      "id": "462e",
+      "username": "johan",
+      "feedback": "Bra jobb!",
+      "isAnonymous": false
+    },
+    {
+      "id": "4500",
+      "username": "Kajsa",
+      "feedback": "Test slow 4g",
+      "isAnonymous": false
+    },
+    {
+      "id": "d2ed",
+      "username": "Kajsa",
+      "feedback": "redirect",
+      "isAnonymous": false
+    }
+  ]
+}
